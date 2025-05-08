@@ -1,12 +1,8 @@
-#include "Dyhotomia_class.h"
+#include "Solver.h"
 
 int main(){
+
     int methodChoice;
-    double a, b;
-    
-    cout << "Введіть проміжок від a до b: " << endl;
-    cin >> a >> b; 
-    
     cout << "Оберіть метод розв'язку\n" 
          << "№1: Метод дихотомії\n"
          << "№2: Метод Ньютона\n"
@@ -16,17 +12,15 @@ int main(){
     switch(methodChoice)
     {
     case 1: {
-        Dyhotomia* dyh = new Dyhotomia(a, b);
-        double result = dyh->solveBisection();
-        cout << "Result:" << result << endl;
-        delete dyh;
+        Bisection Bis;
+        double result = Bis.solve();
+        cout << "Результат обчислення: " << result << endl;
         break;
     }
     case 2: {
-        Dyhotomia* nut = new Dyhotomia(a, b);
-        double result = nut->solveNewton();
-        cout << "Result:" << result << endl;
-        delete nut;
+        Newton New;
+        double result = New.solve();
+        cout << "Результат обчислення: " << result << endl;
         break;
     }
     default:
